@@ -1,0 +1,146 @@
+/* General box-sizing reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 35%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for button height */
+  width: 60px;
+  height: 60px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+/* Hover effects for buttons */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1); /* Maintain vertical centering during scaling */
+}
+
+/* Positioning */
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Number text (1/5 etc.) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+    padding: 1px 2px;
+  color: white;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Thumbnail row */
+.row {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center thumbnails horizontally */
+  gap: 10px; /* Add consistent spacing between thumbnails */
+}
+
+/* Thumbnail styling */
+.column {
+  flex: 0 1 auto; /* Allow flexibility while keeping consistent size */
+  padding: 2px; /* Add padding to avoid layout shift with borders */
+  box-sizing: border-box; /* Ensure border doesn't affect width */
+}
+
+.demo {
+  opacity: 0.6;
+  width: 90%; /* Reduced size by 10% */
+  transition: opacity 0.3s, transform 0.3s, border 0.3s;
+  border: 2px solid transparent; /* Default border to prevent shifting */
+}
+
+.demo.active {
+  border-color: #f00; /* Highlighted border for active thumbnail */
+  opacity: 1;
+  transform: scale(1.1); /* Slight zoom for active thumbnail */
+}
+
+/* Add fade effect to slides */
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Image hover message */
+.mySlides img {
+  position: relative;
+}
+
+.mySlides:hover::before {
+  content: "Click on image to see high-resolution version";
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Translucent background */
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  pointer-events: none; /* Ensure the message doesn't block interactions */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.mySlides:hover::before {
+  opacity: 1; /* Fade in on hover */
+}
